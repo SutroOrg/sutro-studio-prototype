@@ -1,0 +1,182 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans:
+    "DM Sans", "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-heading:
+    "Space Grotesk", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --accent: #3f3f46;
+  --accent-foreground: #fafafa;
+  --background: #18181b;
+  --border: #3f3f46;
+  --card: #18181b;
+  --card-foreground: #fafafa;
+  --destructive: #FB7185;
+  --destructive-foreground: #fafafa;
+  --foreground: #f4f4f5;
+  --input: #52525b;
+  --muted: #3f3f46;
+  --muted-foreground: #a1a1aa;
+  --popover: #262626;
+  --popover-foreground: #fafafa;
+  --primary: #bef264;
+  --primary-foreground: #1a2e05;
+  --ring: #bef264;
+  --secondary: #3f3f46;
+  --secondary-foreground: #fafafa;
+  --chart-1: #2a9d90;
+  --chart-2: #e76e50;
+  --chart-3: #274754;
+  --chart-4: #e8c468;
+  --chart-5: #f4a462;
+
+  --sidebar: #27272a;
+  --sidebar-foreground: #fafafa;
+  --sidebar-accent: #3f3f46;
+  --sidebar-accent-foreground: #bef264;
+  --sidebar-border: #27272a;
+  --sidebar-primary: #bef264;
+  --sidebar-primary-foreground: #09090b;
+  --sidebar-ring: #bef264;
+
+  --radius: 0.625rem;
+}
+
+.dark {
+  --accent: #3f3f46;
+  --accent-foreground: #fafafa;
+  --background: #18181b;
+  --border: #3f3f46;
+  --card: #18181b;
+  --card-foreground: #fafafa;
+  --destructive: #FB7185;
+  --destructive-foreground: #fafafa;
+  --foreground: #f4f4f5;
+  --input: #52525b;
+  --muted: #3f3f46;
+  --muted-foreground: #a1a1aa;
+  --popover: #262626;
+  --popover-foreground: #fafafa;
+  --primary: #bef264;
+  --primary-foreground: #1a2e05;
+  --ring: #bef264;
+  --secondary: #3f3f46;
+  --secondary-foreground: #fafafa;
+  --chart-1: #2a9d90;
+  --chart-2: #e76e50;
+  --chart-3: #274754;
+  --chart-4: #e8c468;
+  --chart-5: #f4a462;
+
+  --sidebar: #27272a;
+  --sidebar-foreground: #fafafa;
+  --sidebar-accent: #3f3f46;
+  --sidebar-accent-foreground: #bef264;
+  --sidebar-border: #27272a;
+  --sidebar-primary: #bef264;
+  --sidebar-primary-foreground: #09090b;
+  --sidebar-ring: #bef264;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--background);
+}
+
+#root,
+[data-remix-root] {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+@keyframes text-shimmer {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: -100% 50%;
+  }
+}
+
+.animate-text-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--muted-foreground) 0%,
+    var(--foreground) 40%,
+    var(--foreground) 60%,
+    var(--muted-foreground) 100%
+  );
+  background-size: 200% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 2s ease-in-out infinite;
+}
