@@ -1,13 +1,11 @@
-import sutroConfig, { standardIgnores } from "@sutro/eslint-config";
 import reactRefresh from "eslint-plugin-react-refresh";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
-    ignores: standardIgnores,
+    ignores: ["node_modules", "build", "dist", ".react-router"],
   },
   { files: ["**/*.{js,mjs,cjs,ts}"] },
-  ...sutroConfig,
   {
     files: ["**/*.{tsx,jsx}"],
     plugins: {
